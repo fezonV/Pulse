@@ -1,0 +1,18 @@
+services:
+  pg:
+    image: postgres:18.3-alpine3.23
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: pulse
+      POSTGRES_USER: pulse
+      POSTGRES_PASSWORD: pulse_password
+
+    ports:
+      - "127.0.0.1:5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql
+
+volumes:
+  postgres_data:
